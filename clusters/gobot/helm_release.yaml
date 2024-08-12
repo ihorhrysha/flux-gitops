@@ -1,0 +1,15 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: gobot
+  namespace: gobot
+spec:
+  chart:
+    spec:
+      chart: ./helm
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: GitRepository
+        name: gobot
+  interval: 1m0s
